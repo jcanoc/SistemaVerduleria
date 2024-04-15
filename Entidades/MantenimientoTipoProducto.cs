@@ -8,10 +8,10 @@ namespace Entidades
 {
     public class MantenimientoTipoProducto
     {
-        public String Nombre { set; get; }
-        public String TipoProducto { set; get; }
-        public String TipoPrecio { set; get; }
-        public int Cantidad { set; get; }
-        public float Precio { set; get; }
+        public string Nombre { get; set; }
+        public string TipoProducto { get; set; }
+        public string TipoPrecio { get; set; }
+        public int Cantidad { get; set; }
+        public decimal Precio { get; set; }
     }
 }

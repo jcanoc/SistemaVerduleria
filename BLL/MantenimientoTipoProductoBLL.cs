@@ -10,27 +10,32 @@ namespace BLL
 {
     public class MantenimientoTipoProductoBLL
     {
-        public void InsertaTipoProducto(string Nombre, string TipoProducto, string TipoPrecio, int Cantidad, decimal Precio)
+ 
+       
+        private readonly MantenimientoTipoProductoDAL _tipoProductoDAL;
+
+
+        public MantenimientoTipoProductoBLL()
         {
-
-            MantenimientoTipoProductoDAL TipoProductoDAL = new MantenimientoTipoProductoDAL();
-            TipoProductoDAL.InsertaTipoProducto(Nombre, TipoProducto, TipoPrecio, Cantidad, Precio);
-
+            _tipoProductoDAL = new MantenimientoTipoProductoDAL();
         }
 
-        public void ActualizaTipoProducto(string Nombre, string TipoProducto, string TipoPrecio, int Cantidad, decimal Precio)
+       
+        public void InsertaTipoProducto(string nombre, string tipoProducto, string tipoPrecio, int cantidad, decimal precio)
         {
-
-            MantenimientoTipoProductoDAL TipoProductoDAL = new MantenimientoTipoProductoDAL();
-            TipoProductoDAL.ActualizaTipoProducto(Nombre, TipoProducto, TipoPrecio, Cantidad, Precio);
-
+            _tipoProductoDAL.InsertaTipoProducto(nombre, tipoProducto, tipoPrecio, cantidad, precio);
         }
 
+        
+        public void ActualizaTipoProducto(string nombre, string tipoProducto, string tipoPrecio, int cantidad, decimal precio)
+        {
+            _tipoProductoDAL.ActualizaTipoProducto(nombre, tipoProducto, tipoPrecio, cantidad, precio);
+        }
+
+        
         public bool ValidaExistenciaProducto(string nombre)
         {
-            MantenimientoTipoProductoDAL Producto = new MantenimientoTipoProductoDAL();
-
-            return Producto.ValidaExistenciaProducto(nombre);
+            return _tipoProductoDAL.ValidaExistenciaProducto(nombre);
         }
     }
 }
